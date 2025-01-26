@@ -1,27 +1,33 @@
 // Initialize express router
-const express = require('express');
+import express from 'express';
 const router = express.Router();
 
-// Define a main route
-router.get('/', (req, res) => {
-    res.render('index');
-});
+// Define main routes
+import {
+    indexController,
+    aboutController
+} from '../controllers/main.js';
 
-router.get('/about', (req, res) => {
-    res.render('about');
-});
+router.get('/', indexController);
+router.get('/about', aboutController);
 
-router.get('/login', (req, res) => {
-    res.render('./user/login');
-});
 
-router.get("/signup", (req, res) => {
-    res.render('./user/signup');
-});
+// Define user routes
+import {
+    loginGetController,
+    loginPostController,
+    signupGetController,
+    signupPostController
+} from '../controllers/user.js';
 
-router.get("/productlist", (req, res) => {
-    res.render('./product/productlist',{products:[]});
-});
+router.get('/login', loginGetController);
+router.post('/login', loginPostController);
+router.get("/signup", signupGetController);
+router.post("/signup", signupPostController);
+
+// Define product routes
+import { productlistController } from '../controllers/product.js';
+router.get("/productlist",productlistController);
 
 // Export router
-module.exports = router;
+export default router;

@@ -1,11 +1,11 @@
 {
   "name": "ecommerce-app",
   "version": "1.0.0",
-  "description": "simple ecommerce app made in node",
+  "description": "A simple e-commerce application built with Node.js, Express, MongoDB and EJS. The application includes user registration and login functionality, product listing and details pages, and simple shopping cart functionality.",
   "keywords": [
     "node",
     "express",
-    "mongo"
+    "mongodb"
   ],
   "repository": {
     "type": "git",
@@ -13,7 +13,7 @@
   },
   "license": "MIT",
   "author": "nih",
-  "type": "commonjs",
+  "type": "module",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -32,3 +32,4 @@
     "mongoose": "^8.9.5"
   }
 }
+
