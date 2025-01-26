@@ -1,7 +1,5 @@
 # Ecommerce App
 
-================
-
 A simple ecommerce application built with Node.js, Express, MongoDB, and EJS.
 
 ## Table of Contents
