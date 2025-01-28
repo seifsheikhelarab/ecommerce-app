@@ -4,7 +4,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
 export function loginGetController(req, res) {
-    res.render('./user/login');
+    res.render('./user/login', { user: req.session.user, title: 'Log in' });
 };
 
 export async function loginPostController(req, res) {
@@ -25,7 +25,7 @@ export async function loginPostController(req, res) {
 };
 
 export function signupGetController(req, res) {
-    res.render('./user/signup');
+    res.render('./user/signup', { user: req.session.user, title: 'Sign up' });
 };
 
 export async function signupPostController(req, res) {
@@ -42,3 +42,12 @@ export async function signupPostController(req, res) {
         console.error(err);
     }
 }
+
+export function logoutController(req, res) {
+    req.session.destroy();
+    res.redirect('/');
+};
+
+export function profileController(req, res) {
+    res.render('./user/profile', { user: req.session.user, title: 'Profile' });
+};

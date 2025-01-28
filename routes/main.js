@@ -17,13 +17,17 @@ import {
     loginGetController,
     loginPostController,
     signupGetController,
-    signupPostController
+    signupPostController,
+    logoutController,
+    profileController
 } from '../controllers/user.js';
 
 router.get('/login', loginGetController);
 router.post('/login', loginPostController);
 router.get("/signup", signupGetController);
 router.post("/signup", signupPostController);
+router.get("/logout", logoutController);
+router.get("/profile", profileController);
 
 // Define product routes
 import { productlistController } from '../controllers/product.js';
