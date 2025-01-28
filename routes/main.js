@@ -30,8 +30,14 @@ router.get("/logout", logoutController);
 router.get("/profile", profileController);
 
 // Define product routes
-import { productlistController } from '../controllers/product.js';
-router.get("/productlist",productlistController);
+import { 
+    productlistController,
+    newProductGetController,
+    newProductPostController
+} from '../controllers/product.js';
+router.get("/productList",productlistController);
+router.get("/product/new",newProductGetController);
+router.post("/product/new",newProductPostController);
 
 // Export router
 export default router;
