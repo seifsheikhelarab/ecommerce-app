@@ -1,8 +1,11 @@
 <%- include('./partials/header.ejs') %>
 <div class="container mt-5">
-    <h1>Welcome to E-commerce App</h1>
-    <p>This is a simple e-commerce application made with Node.js, Express, MongoDB and EJS.</p>
-    <p>It is a project for learning purposes and is not intended for real-world use.</p>
-    <p>You can <a href="/products">view products</a> or <a href="/about">learn more about the project</a>.</p>
+    <div class="text-center">
+        <h1 class="display-4">Welcome to E-commerce App</h1>
+        <p class="lead">This is a simple e-commerce application made with Node.js, Express, MongoDB, and EJS.</p>
+        <p>It is a project for learning purposes and is not intended for real-world use.</p>
+        <p>You can <a href="/productList" class="btn btn-outline-primary">View Products</a> or 
+           <a href="/about" class="btn btn-outline-secondary">Learn More</a> about the project.</p>
+    </div>
 </div>
 <%- include('./partials/footer.ejs') %>

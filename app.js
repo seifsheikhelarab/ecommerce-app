@@ -11,6 +11,7 @@ import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
+import morgan from 'morgan';
 
 // Initialize Express
 const app = express();
@@ -24,6 +25,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors({ credentials: true }));
 app.use(cookieParser());
 app.use(compression());
+app.use(morgan('dev'));
 
 // Serve Static Files from the "public" directory and set the view engine to EJS
 app.use(express.static('public'));
