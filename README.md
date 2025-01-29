@@ -12,7 +12,6 @@ A comprehensive e-commerce application developed using Node.js, Express, MongoDB
 
 ## Installation
 
-
 To set up the application on your local machine, follow these steps:
 
 1. Clone the repository: `git clone https://github.com/seifsheikhelarab/ecommerce-app.git`
@@ -23,7 +22,6 @@ To set up the application on your local machine, follow these steps:
 
 ## Usage
 
-
 1. Open your preferred web browser and visit `http://localhost:4000`
 2. Explore the product listings and click on any product to view its details
 3. Register as a new user or log in to access additional features
@@ -33,6 +31,4 @@ To set up the application on your local machine, follow these steps:
 
 ## License
 
-
 This application is open-source and available under the MIT License. For more information, refer to the LICENSE file.
-

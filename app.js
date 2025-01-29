@@ -8,6 +8,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import { check, validationResult } from 'express-validator'
 import compression from 'compression';
 import session from 'express-session';
 import MongoStore from 'connect-mongo';

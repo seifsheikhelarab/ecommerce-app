@@ -21,11 +21,13 @@ import {
     logoutController,
     profileController
 } from '../controllers/user.js';
+import { loginErrorArray, signupErrorArray } from '../middlewares/validation.js';
+
 
 router.get('/login', loginGetController);
-router.post('/login', loginPostController);
+router.post('/login',loginErrorArray , loginPostController);
 router.get("/signup", signupGetController);
-router.post("/signup", signupPostController);
+router.post("/signup", signupErrorArray ,signupPostController);
 router.get("/logout", logoutController);
 router.get("/profile", profileController);
 

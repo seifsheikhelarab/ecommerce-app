@@ -2,6 +2,7 @@ import express from 'express';
 import User from '../models/user.js';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import { validationResult } from 'express-validator';
 
 export function loginGetController(req, res) {
     res.render('./user/login', { user: req.session.user, title: 'Log in' });
@@ -9,18 +10,22 @@ export function loginGetController(req, res) {
 
 export async function loginPostController(req, res) {
     const { email, password } = req.body;
-    if (!email || !password) {
-        return res.status(400).send({ message: 'Please provide all required fields' });
-    };
+    const errors = validationResult(req);
+    if(!errors.isEmpty()) {
+        const alert = errors.array();
+        return res.render('./user/login', { user: req.session.user, title: 'Log in', alert });
+    }
     let user = await User.findOne({ email });
     if (!user) {
-        return res.status(404).send({ message: 'User not found' });
+        //return res.status(404).send({ message: 'User not found' });
+        return res.render('./user/login', { user: req.session.user, title: 'Log in', alert: [{ msg: 'User not found' }] });
     };
     if (await bcrypt.compare(password, user.password)) {
         req.session.user = user;
         res.redirect('/');
     } else {
-        res.status(401).send({ message: 'Invalid credentials' });
+        return res.render('./user/login', { user: req.session.user, title: 'Log in', alert: [{ msg: 'User not found' }] });
+        //res.status(401).send({ message: 'Invalid credentials' });
     };
 };
 
@@ -29,9 +34,10 @@ export function signupGetController(req, res) {
 };
 
 export async function signupPostController(req, res) {
-    const { username, email, password } = req.body;
-    if (!username || !email || !password) {
-        return res.status(400).send({ message: 'Please provide all required fields' });
+    const errors = validationResult(req);
+    if(!errors.isEmpty()) {
+        const alert = errors.array();
+        return res.render('./user/signup', { user: req.session.user, title: 'Sign up', alert });
     }
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
