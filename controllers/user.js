@@ -17,7 +17,6 @@ export async function loginPostController(req, res) {
     }
     let user = await User.findOne({ email });
     if (!user) {
-        //return res.status(404).send({ message: 'User not found' });
         return res.render('./user/login', { user: req.session.user, title: 'Log in', alert: [{ msg: 'User not found' }] });
     };
     if (await bcrypt.compare(password, user.password)) {
@@ -25,7 +24,6 @@ export async function loginPostController(req, res) {
         res.redirect('/');
     } else {
         return res.render('./user/login', { user: req.session.user, title: 'Log in', alert: [{ msg: 'User not found' }] });
-        //res.status(401).send({ message: 'Invalid credentials' });
     };
 };
 

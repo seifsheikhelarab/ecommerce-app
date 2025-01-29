@@ -1,0 +1,24 @@
+<%-  include('../partials/header.ejs')  %>
+
+<div class="container mt-5">
+    <h2>Admin Sign up</h2>
+    <%- include('../partials/error.ejs') %>
+
+    <form action="/admin/signup" method="POST" action="/signup" enctype="application/json">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+        </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+        </div>
+        <button type="submit" class="btn btn-danger">Sign up</button>
+    </form>
+</div>
+
+<%- include('../partials/footer.ejs') %>

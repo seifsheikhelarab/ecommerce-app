@@ -29,6 +29,12 @@ To set up the application on your local machine, follow these steps:
 5. Review your cart and proceed to checkout to place an order
 6. Manage your account and track your orders through the user dashboard
 
+## To-Do List
+
+* Add cart functionality
+* Add admin Dashboard
+* Separate Routes
+
 ## License
 
 This application is open-source and available under the MIT License. For more information, refer to the LICENSE file.

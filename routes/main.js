@@ -11,43 +11,5 @@ import {
 router.get('/', indexController);
 router.get('/about', aboutController);
 
-
-// Define user routes
-import {
-    loginGetController,
-    loginPostController,
-    signupGetController,
-    signupPostController,
-    logoutController,
-    profileController
-} from '../controllers/user.js';
-import { loginErrorArray, signupErrorArray } from '../middlewares/validation.js';
-
-
-router.get('/login', loginGetController);
-router.post('/login',loginErrorArray , loginPostController);
-router.get("/signup", signupGetController);
-router.post("/signup", signupErrorArray ,signupPostController);
-router.get("/logout", logoutController);
-router.get("/profile", profileController);
-
-// Define product routes
-import { 
-    productlistController,
-    newProductGetController,
-    newProductPostController,
-    productGetController,
-    productDeleteController,
-    productEditGetController,
-    productEditPostController
-} from '../controllers/product.js';
-router.get("/productList",productlistController);
-router.get("/product/new",newProductGetController);
-router.post("/product/new",newProductPostController);
-router.get("/product/:id",productGetController);
-router.post("/product/delete/:id",productDeleteController);
-router.get("/product/edit/:id",productEditGetController);
-router.post("/product/edit/:id",productEditPostController);
-
 // Export router
 export default router;
