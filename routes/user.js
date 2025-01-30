@@ -11,7 +11,11 @@ import {
     logoutController,
     profileController
 } from '../controllers/user.js';
-import { loginErrorArray, signupErrorArray } from '../middlewares/validation.js';
+
+import { 
+    loginErrorArray, 
+    signupErrorArray
+} from '../middlewares/validation.js';
 
 router.get('/login', loginGetController);
 router.post('/login',loginErrorArray , loginPostController);

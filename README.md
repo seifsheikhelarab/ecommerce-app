@@ -33,7 +33,8 @@ To set up the application on your local machine, follow these steps:
 
 * Add cart functionality
 * Add admin Dashboard
-* Separate Routes
+* Route Clean-up
+* Port to TypeScript
 
 ## License
 

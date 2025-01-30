@@ -12,7 +12,7 @@ export async function productlistController(req, res) {
 
 export function newProductGetController(req, res) {
     res.render('./product/newProduct', {
-        user: req.session.user, 
+        admin: req.session.admin, 
         title: 'New Product'
     });
 };
@@ -46,7 +46,7 @@ export async function productEditGetController(req, res) {
     const product = await Product.findById(req.params.id);
     res.render('./product/editProduct', {
         product,
-        user: req.session.user, 
+        admin: req.session.admin, 
         title: `Edit ${product.name} - E-commerce app`
     });
 }

@@ -1,7 +1,6 @@
 import express from 'express';
 import User from '../models/user.js';
 import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
 import { validationResult } from 'express-validator';
 
 export function loginGetController(req, res) {
@@ -32,12 +31,20 @@ export function signupGetController(req, res) {
 };
 
 export async function signupPostController(req, res) {
+    const { username, email, password } = req.body;
     const errors = validationResult(req);
-    if(!errors.isEmpty()) {
+    if (!errors.isEmpty()) {
         const alert = errors.array();
         return res.render('./user/signup', { user: req.session.user, title: 'Sign up', alert });
     }
+
     try {
+        const existingUser = await User.findOne({ email });
+
+        if (existingUser) {
+            return res.render('./user/signup', { user: req.session.user, title: 'Sign up', alert: [{ msg: 'Email is already in use' }] });
+        }
+
         const hashedPassword = await bcrypt.hash(password, 10);
         const user = new User({ username, email, password: hashedPassword });
         await user.save();
@@ -45,7 +52,7 @@ export async function signupPostController(req, res) {
     } catch (err) {
         console.error(err);
     }
-}
+};
 
 export function logoutController(req, res) {
     req.session.destroy();
