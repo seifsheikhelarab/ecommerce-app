@@ -1,4 +1,7 @@
-// Import Dotenv for Enviroment Variables
+// app.js
+// description : this file contains the main server setup
+
+// Import dotenv for environment variables
 import dotenv from 'dotenv';
 dotenv.config();
 

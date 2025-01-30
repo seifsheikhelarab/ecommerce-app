@@ -1,6 +1,11 @@
-import express from 'express';
+// ./controllers/product.js
+// description : this file contains the product controllers
+
+// import models
 import Product from '../models/product.js';
 
+// GET : /productlist
+// Product List Controller
 export async function productlistController(req, res) {
     const products = await Product.find();
     res.render('./product/productlist', {
@@ -10,7 +15,8 @@ export async function productlistController(req, res) {
     });
 };
 
-
+// GET : /product/:id
+// Product Get Controller
 export async function productGetController(req, res) {
     const product = await Product.findById(req.params.id);
     res.render('./product/singleProduct', {
@@ -19,4 +25,3 @@ export async function productGetController(req, res) {
         title: `${product.name} - E-commerce app`
     });
 };
-

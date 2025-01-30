@@ -1,12 +1,20 @@
-// Purpose: To handle the main routes of the application.
-import express from 'express';
+// ./controllers/main.js
+// description : this file contains the main controllers
 
-// Contoller to render the index view
+// GET : /
+// Index Controller
 export function indexController(req, res) {
     res.render('index', { user: req.session.user, title: 'Home' });
 };
 
-// Contoller to render the about view
+// GET : /about
+// About Controller
 export function aboutController(req, res) {
     res.render('about', { user: req.session.user, title: 'About' });
+};
+
+// GET : /error
+// Error Controller
+export function errorController(req, res) {
+    res.render('error', { user: req.session.user, title: 'Error' });
 };

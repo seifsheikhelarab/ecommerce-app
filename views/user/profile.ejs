@@ -8,6 +8,30 @@
             <p><strong>Email:</strong> <%= user.email %></p>
         </div>
     </div>
+    <br>
+    <h2>Order History</h2>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% orders.forEach(order => { %>
+                    <% order.products.forEach(product => { %>
+                        <tr>
+                            <td><%= product.product.name %></td>
+                            <td><%= product.quantity %></td>
+                        </tr>
+                    <% }); %>
+                <% }); %>
+            </tbody>
+        </table>
+    </div>
+
 </div>
+
 
 <%- include('../partials/footer.ejs') %>

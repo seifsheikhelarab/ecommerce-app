@@ -1,3 +1,6 @@
+//./config/middleware.js
+// description : this file contains the middleware setup function
+
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';

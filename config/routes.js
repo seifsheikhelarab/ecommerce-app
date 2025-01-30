@@ -1,4 +1,5 @@
-import express from 'express';
+// ./config/routes.js
+// description : this file contains the route setup function
 
 import { default as mainRouter } from '../routes/main.js';
 import { default as adminRouter } from '../routes/admin.js';

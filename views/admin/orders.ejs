@@ -1,0 +1,31 @@
+<%-  include('../partials/adminHeader.ejs')  %>
+
+<div class="container mt-5">
+    <h2>All Orders</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>User ID</th>
+                <th>Order Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% orders.forEach(order => { %>
+            <tr>
+                <td><%= order._id %></td>
+                <td><%= order.user %></td>
+                <td>
+                    <ul>
+                        <% order.products.forEach(item => { %>
+                            <li><%= item.product.name %> (Quantity: <%= item.quantity %>)</li>
+                        <% }) %>
+                    </ul>
+                </td>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<%- include('../partials/footer.ejs') %>
+

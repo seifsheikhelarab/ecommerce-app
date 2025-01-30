@@ -1,6 +1,11 @@
+// ./models/order.js
+// description : this file contains the order schema
+
+// Importing the required modules
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
+// Order Schema
 const orderSchema = new Schema({
     user: { type: Schema.Types.ObjectId, ref: 'User' },
     products: [
@@ -11,4 +16,5 @@ const orderSchema = new Schema({
     ]
 });
 
+// Exporting the model
 export default mongoose.model('Order', orderSchema);
