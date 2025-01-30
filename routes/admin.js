@@ -9,7 +9,12 @@ import {
     adminLoginPostController,
     adminSignupPostController,
     adminDashboardController,
-    adminProductsController
+    adminProductsController,
+    newProductGetController,
+    newProductPostController,
+    productDeleteController,
+    productEditGetController,
+    productEditPostController
 } from '../controllers/admin.js';
 
 import { 
@@ -23,5 +28,12 @@ router.post("/admin/login", loginErrorArray, adminLoginPostController);
 router.post("/admin/signup", signupErrorArray, adminSignupPostController);
 router.get("/admin/dashboard",adminDashboardController);
 router.get("/admin/products",adminProductsController);
+
+router.get("/product/new",newProductGetController);
+router.post("/product/new",newProductPostController);
+router.post("/product/delete/:id",productDeleteController);
+router.get("/product/edit/:id",productEditGetController);
+router.post("/product/edit/:id",productEditPostController);
+
 
 export default router;

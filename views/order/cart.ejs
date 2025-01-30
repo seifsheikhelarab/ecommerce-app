@@ -1,0 +1,49 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="container mt-5">
+    <h2>Shopping Cart</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Product</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if (cart.length > 0) { %>
+                <% cart.forEach(product => { %>
+                    <tr>
+                        <td><img src="<%=product.image%>" width="50" height="50" class="img-thumbnail" alt="product image"> <%=product.name%></td>
+                        <td><%=product.quantity || 0%></td>
+                        <td><%=product.price%>$</td>
+                        <td><%=product.price * product.quantity %>$</td>
+                        <td>
+                            <form action="/order/cart/remove/<%=product._id%>" method="post">
+                                <button type="submit" class="btn btn-danger">Remove</button>
+                            </form>
+                        </td>
+                    </tr>
+                <% }); %>
+                <tr>
+                    <td colspan="3" class="text-right">Subtotal</td>
+                    <td><%=cart.reduce((acc, product) => acc + (product.price * product.quantity), 0) %>$</td>
+                    <td></td>
+                </tr>
+            <% } else { %>
+                <tr>
+                    <td colspan="4" class="text-center">Your cart is empty.</td>
+                    <td></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <% if (cart.length > 0) { %>
+        <button class="btn btn-primary">Proceed to Checkout</button>
+    <% } %>
+</div>
+
+<%- include('../partials/footer.ejs') %>
+
