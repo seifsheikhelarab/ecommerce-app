@@ -9,11 +9,13 @@ const router = express.Router();
 import { 
     productlistController,
     productGetController,
+    productSearchController
 } from '../controllers/product.js';
 
 // Product Routes
 router.get("/productList",productlistController);
 router.get("/product/:id",productGetController);
+router.get("/search",productSearchController);
 
 // Export router
 export default router;

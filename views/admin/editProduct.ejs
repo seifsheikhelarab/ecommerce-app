@@ -20,7 +20,7 @@
             <input type="text" class="form-control" id="image" name="image" value="<%=product.image%>">
         </div>
         <button type="submit" class="btn btn-primary">Update Product</button>
-        <a href="/product/<%=product._id%>" class="btn btn-secondary">Cancel</a>
+        <a href="/admin/products" class="btn btn-secondary">Cancel</a>
     </form>
     <br>
     <form action="/product/delete/<%=product._id%>" method="POST" enctype="application/json">

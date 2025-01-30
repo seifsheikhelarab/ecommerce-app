@@ -7,11 +7,18 @@ import Product from '../models/product.js';
 // GET : /productlist
 // Product List Controller
 export async function productlistController(req, res) {
-    const products = await Product.find();
+    const { page = 1, limit = 5 } = req.query;
+    const products = await Product.find()
+        .skip((page - 1) * limit)
+        .limit(limit)
+        .sort({ createdAt: -1 });
+    const pages = Math.ceil(await Product.countDocuments() / limit);
     res.render('./product/productlist', {
         products,
         user: req.session.user, 
-        title: 'Product list'
+        title: 'Product list',
+        page, 
+        pages
     });
 };
 
@@ -23,5 +30,14 @@ export async function productGetController(req, res) {
         product,
         user: req.session.user, 
         title: `${product.name} - E-commerce app`
+    });
+};
+
+export async function productSearchController(req, res) {
+    const products = await Product.find({name: new RegExp(req.query.q, 'i')});
+    res.render('./product/search', {
+        products,
+        user: req.session.user, 
+        title: 'Product list'
     });
 };

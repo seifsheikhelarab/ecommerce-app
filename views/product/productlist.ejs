@@ -1,22 +1,61 @@
 <%- include('../partials/header.ejs') %>
 
 <div class="container">
-    <h2>Products</h2>
+    <h2 class="text-center mb-4">Products</h2>
+    <form action="/search" method="GET" class="form-inline justify-content-center mb-4">
+        <input class="form-control mr-sm-2" type="search" name="q" placeholder="Search products" aria-label="Search" style="width: 300px;">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+
     <div class="row">
     <% products.forEach(product => { %>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card mb-4" style="width: 100%;">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+            <div class="card h-100">
                 <img src="<%=product.image%>" class="card-img-top" alt="<%=product.name%>">
                 <div class="card-body">
                     <h5 class="card-title"><%=product.name%></h5>
                     <p class="card-text"><%=product.description%></p>
                     <p class="card-text">Price: <%=product.price%>$</p>
-                    <a href="/product/<%=product._id%>" class="btn btn-primary">View Details</a>
+                    <a href="/product/<%=product._id%>" class="btn btn-primary btn-block">View Details</a>
                 </div>
             </div>
         </div>
     <% }); %>
     </div>
+    <nav>
+        <ul class="pagination justify-content-center">
+        <% if (page > 1) { %>
+            <li class="page-item">
+                <a class="page-link" href="/productlist?page=<%= page - 1 %>" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                    <span class="sr-only">Previous</span>
+                </a>
+            </li>
+        <% } %>
+
+        <% for (let i = 1; i <= pages; i++) { %>
+            <li class="page-item <%= page === i ? 'active' : '' %>">
+                <a class="page-link" href="/productlist?page=<%= i %>"><%= i %></a>
+            </li>
+        <% } %>
+
+        <% if (page < pages) { %>
+            <li class="page-item">
+                <a class="page-link" href="/productlist?page=<%=pages%>" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </li>
+        <% } %>
+        </ul>
+    </nav>
+
+
 </div>
 
+
 <%- include('../partials/footer.ejs') %>
+
+
+

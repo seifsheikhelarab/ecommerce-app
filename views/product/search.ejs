@@ -1,0 +1,32 @@
+<%- include('../partials/header.ejs') %>
+
+<div class="container">
+    <h2 class="text-center">Search Products</h2>
+    <form action="/search" method="GET" class="form-inline justify-content-center">
+        <input class="form-control mr-sm-2" type="search" name="q" placeholder="Search" aria-label="Search" style="width: 300px;">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    
+    <div class="row mt-3">
+    <% if (products.length === 0) { %>
+        <p class="text-center">No products found.</p>
+    <% } else { %>
+        <% products.forEach(product => { %>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card mb-4 shadow-sm">
+                    <img src="<%=product.image%>" class="card-img-top" alt="<%=product.name%>" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title"><%=product.name%></h5>
+                        <p class="card-text"><%=product.description%></p>
+                        <p class="card-text">Price: <%=product.price%>$</p>
+                        <a href="/product/<%=product._id%>" class="btn btn-primary btn-block">View Details</a>
+                    </div>
+                </div>
+            </div>
+        <% }); %>
+    <% } %>
+    </div>
+</div>
+
+<%- include('../partials/footer.ejs') %>
+

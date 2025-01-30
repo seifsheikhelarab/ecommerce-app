@@ -19,7 +19,7 @@ export function middlewareSetup(app){
     app.use(cors({ credentials: true }));
     app.use(cookieParser());
     app.use(compression());
-    app.use(morgan('dev'));
+    app.use(morgan('tiny'));
     app.use(express.static('public'));
     app.set('view engine', 'ejs');
     app.use(session({
