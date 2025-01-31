@@ -54,7 +54,7 @@ The E-commerce App includes the following features:
 - **Order Management**:
   - Place orders and view order summaries.
   - Track order history.
-- **Admin Features** (To be implemented):
+- **Admin Features**:
   - Add, update, and delete products.
   - Manage user accounts and orders.
 
