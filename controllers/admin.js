@@ -61,7 +61,7 @@ export async function adminSignupPostController(req, res) {
         const hashedPassword = await bcrypt.hash(password, 10);
         const admin = new Admin({ username, email, password: hashedPassword });
         await admin.save();
-        res.redirect('/admin/dashboard');
+        res.redirect('/admin/login');
     } catch (err) {
         console.error(err);
     }

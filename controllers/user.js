@@ -60,7 +60,7 @@ export async function signupPostController(req, res) {
         const hashedPassword = await bcrypt.hash(password, 10);
         const user = new User({ username, email, password: hashedPassword });
         await user.save();
-        res.redirect('/');
+        res.redirect('/login');
     } catch (err) {
         console.error(err);
     }
