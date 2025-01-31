@@ -22,11 +22,11 @@
 - [About](#about)
 - [Purpose](#purpose)
 - [Features](#features)
+- [API Documentation](#api-documentation)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Project Structure](#project-structure)
 - [Database Setup](#database-setup)
-- [API Documentation](#api-documentation)
 - [License](#license)
 
 ## About
@@ -57,6 +57,10 @@ The E-commerce App includes the following features:
 - **Admin Features** (To be implemented):
   - Add, update, and delete products.
   - Manage user accounts and orders.
+
+## API Documentation
+
+For detailed API documentation, refer to the [Postman Collection](https://documenter.getpostman.com/view/38348561/2sAYX2NjE7) (to be implemented).
 
 ## Installation
 
@@ -151,10 +155,6 @@ The application uses **MongoDB** as its database. Follow these steps to set it u
    ```
 
 4. The application will automatically create the necessary collections when it starts.
-
-## API Documentation
-
-For detailed API documentation, refer to the [Postman Collection](https://documenter.getpostman.com/view/your-postman-docs-link) (to be implemented).
 
 ## License
 
