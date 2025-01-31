@@ -60,7 +60,7 @@ The E-commerce App includes the following features:
 
 ## API Documentation
 
-For detailed API documentation, refer to the [Postman Collection](https://documenter.getpostman.com/view/38348561/2sAYX2NjE7) (to be implemented).
+For detailed API documentation, refer to the [Postman Collection](https://documenter.getpostman.com/view/38348561/2sAYX2NjE7).
 
 ## Installation
 
