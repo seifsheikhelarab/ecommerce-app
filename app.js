@@ -7,6 +7,7 @@ dotenv.config();
 
 // Import Express
 import express from 'express';
+import ejs from "ejs";
 
 // Import Configurations
 import { databaseSetup } from './config/db.js';
